@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop by Category – OzSaver</title>
+<meta name="description" content="Browse Australian coupon codes and deals by category: fashion, travel, health and beauty, electronics, home and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400..700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container topbar__inner">
+    <span>Verified Australian coupon codes, checked every week</span>
+    <span>Free to use · No sign-up needed</span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo" aria-label="OzSaver home">
+      <svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true">
+        <path d="M4 9a3 3 0 0 1 3-3h24a3 3 0 0 1 3 3v6a4 4 0 0 0 0 8v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a4 4 0 0 0 0-8z" fill="#0B2A6F"/>
+        <path d="M13 24l5-12 5 12M15 20h6" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span>OzSaver</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+
+    <nav class="nav" id="mainNav" aria-label="Main">
+      <a href="stores.html">Stores</a>
+      <a href="coupons.html">Coupons</a>
+      <a href="categories.html" class="is-active" aria-current="page">Categories</a>
+      <a href="events.html">Events</a>
+      <a href="guides.html">Guides</a>
+      <a href="guides.html">Blogs</a>
+    </nav>
+
+    <div class="header__actions">
+      <span class="region">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+        Australia
+      </span>
+      <a href="index.html#newsletter" class="btn btn--sm">Subscribe</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- Page header -->
+<section class="page-hero page-hero--cats">
+  <div class="container cat-hero">
+    <div class="cat-hero__copy">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Categories</span>
+      </nav>
+      <h1 class="page-hero__title">Shop by category</h1>
+      <p class="lead">Start with what you’re shopping for. Each category collects the latest verified codes and deals from Australian stores.</p>
+
+      <form class="search search--page" id="catSearchForm" role="search">
+        <label for="catSearch" class="sr-only">Search categories</label>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6B7BA6" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="catSearch" type="search" placeholder="Search categories, e.g. Travel" autocomplete="off">
+        <span class="search__count" id="catCount" aria-live="polite"></span>
+      </form>
+    </div>
+
+    <div class="cat-hero__art" aria-hidden="true">
+      <span class="orb orb--1"></span><span class="orb orb--2"></span><span class="orb orb--3"></span>
+      <div class="cat-hero__tag cat-hero__tag--a">Travel</div>
+      <div class="cat-hero__tag cat-hero__tag--b">Fashion</div>
+      <div class="cat-hero__tag cat-hero__tag--c">Home</div>
+      <div class="cat-hero__tag cat-hero__tag--d">Beauty</div>
+      <div class="cat-hero__tag cat-hero__tag--e">Tech</div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured categories -->
+<section class="section container" id="featuredSection">
+  <div class="eyebrow">POPULAR RIGHT NOW</div>
+  <h2>Featured categories</h2>
+  <div class="feat-grid" id="featGrid"></div>
+</section>
+
+<!-- All categories -->
+<section class="section container" id="allSection">
+  <div class="section__head">
+    <div>
+      <div class="eyebrow">EVERYTHING WE COVER</div>
+      <h2 id="allTitle">All categories</h2>
+    </div>
+    <a href="coupons.html" class="more">View all coupons →</a>
+  </div>
+  <div class="catcards" id="catCards"></div>
+  <p class="empty" id="catEmpty" hidden>No categories match your search.</p>
+</section>
+
+<!-- CTA -->
+<section class="section container">
+  <div class="cta-band">
+    <div>
+      <h2>Know the store you want?</h2>
+      <p>Skip the browsing and find it in our A–Z list of Australian stores.</p>
+    </div>
+    <div class="cta-band__actions">
+      <a href="stores.html" class="btn btn--light">Browse stores A–Z</a>
+      <a href="coupons.html" class="btn btn--ghost">See all coupons</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="logo logo--light">
+          <svg width="34" height="34" viewBox="0 0 38 38" aria-hidden="true">
+            <path d="M4 9a3 3 0 0 1 3-3h24a3 3 0 0 1 3 3v6a4 4 0 0 0 0 8v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-6a4 4 0 0 0 0-8z" fill="#fff"/>
+            <path d="M13 24l5-12 5 12M15 20h6" stroke="#0A1330" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span>OzSaver</span>
+        </div>
+        <p>Verified coupon codes and deals from Australian online stores, reviewed every week.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="stores.html">Stores</a><a href="coupons.html">Coupons</a><a href="categories.html">Categories</a><a href="index.html#events">Events</a><a href="index.html#guides">Guides</a><a href="index.html#blog">Blog</a><a href="index.html#reviews">Reviews</a>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <a href="#">About us</a><a href="#">How we find coupons</a><a href="#">How we make money</a><a href="#">Contact</a>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <a href="#">Terms &amp; Conditions</a><a href="#">Privacy Policy</a><a href="#">Imprint</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> OzSaver. All rights reserved.</span>
+      <span>We may earn a commission when you shop through our links.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="categories.js"></script>
+</body>
+</html>

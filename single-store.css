@@ -1,0 +1,170 @@
+/* ==========================================================
+   OzSaver – single store page (add-on to home.css)
+   Load AFTER home.css. Every class is prefixed "sp-" so nothing
+   clashes with homepage classes such as .ticket or .steps.
+   Uses home.css variables: --brand --blue --ink --muted --line
+   --soft --tint --green --star --radius --font-display
+   ========================================================== */
+
+/* ---------- Hero ---------- */
+.sp-hero { position: relative; padding: 16px 0 22px; background: var(--soft); border-bottom: 1px solid #E1E7F5; overflow: hidden; }
+.sp-hero::before, .sp-hero::after { content: ""; position: absolute; border-radius: 50%; border: 2px solid rgba(36, 87, 230, .1); pointer-events: none; }
+.sp-hero::before { width: 300px; height: 300px; right: -90px; top: -150px; }
+.sp-hero::after { width: 160px; height: 160px; right: 50px; top: -70px; }
+.sp-hero .container { position: relative; z-index: 1; }
+
+.sp-crumb { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.sp-crumb a { color: var(--blue); font-weight: 600; }
+.sp-crumb a:hover { text-decoration: underline; }
+
+.sp-card { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 12px; padding: 18px 26px; background: #fff; border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 14px 32px rgba(11, 42, 111, .09); }
+.sp-logo { flex: none; width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #0B2A6F, #2457E6); color: #fff; border-radius: 20px; font-family: var(--font-display); font-weight: 700; font-size: 34px; box-shadow: 0 10px 22px rgba(11, 42, 111, .22); }
+.sp-info { flex: 1 1 380px; min-width: 0; }
+.sp-title { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.12; letter-spacing: -.02em; color: var(--ink); }
+.sp-lead { margin: 6px 0 0; max-width: 640px; font-size: 15px; line-height: 1.5; color: var(--muted); }
+.sp-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-top: 10px; font-size: 13px; color: var(--muted); }
+.sp-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; background: var(--tint); color: var(--brand); }
+.sp-badge--ok { background: #E3F5EB; color: var(--green); }
+.sp-badge--amber { background: #FFF1CC; color: #7A4B00; }
+.sp-badge--hot { background: #FDE8E6; color: #B42318; }
+.sp-badge--mute { background: var(--soft); color: var(--muted); }
+.sp-stars { color: var(--star); letter-spacing: 2px; }
+.sp-actions { display: flex; flex-direction: row; gap: 10px; min-width: 0; }
+.sp-actions .btn { height: 46px; padding: 0 22px; font-size: 15px; }
+.sp-btn-outline { background: #fff; color: var(--brand); border: 2px solid var(--brand); }
+.sp-btn-outline:hover { filter: none; background: var(--tint); }
+
+.sp-stats { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 0; padding: 0; list-style: none; }
+.sp-stats li { display: flex; align-items: baseline; gap: 8px; padding: 8px 16px; background: #fff; border: 1px solid var(--line); border-radius: 999px; }
+.sp-stats b { font-family: var(--font-display); font-weight: 800; font-size: 18px; line-height: 1; color: var(--brand); }
+.sp-stats span { font-size: 13px; color: var(--muted); }
+
+/* ---------- Layout ---------- */
+.sp-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 40px; align-items: start; padding-top: 24px; }
+.sp-main { min-width: 0; }
+.sp-section { margin-top: 72px; }
+.sp-section > p.sp-sub { margin: 10px 0 0; color: var(--muted); }
+
+/* ---------- Toolbar ---------- */
+.sp-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+.sp-tabs { display: inline-flex; padding: 4px; background: var(--soft); border: 1px solid var(--line); border-radius: 14px; }
+.sp-tab { height: 42px; padding: 0 22px; border: 0; border-radius: 10px; background: transparent; font: 600 15px var(--font-body); color: var(--muted); cursor: pointer; }
+.sp-tab em { margin-left: 6px; font-style: normal; font-size: 13px; opacity: .75; }
+.sp-tab.is-on { background: var(--brand); color: #fff; }
+.sp-sort { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--muted); }
+.sp-sort select { height: 44px; padding: 0 14px; border: 1px solid #CBD5EE; border-radius: 12px; background: #fff; font: 600 15px var(--font-body); color: var(--ink); cursor: pointer; }
+.sp-count { margin: 18px 0 0; font-size: 15px; color: var(--muted); }
+.sp-count b { color: var(--ink); font-size: 20px; }
+
+/* ---------- Offer cards ---------- */
+.sp-offers { display: flex; flex-direction: column; gap: 18px; margin-top: 16px; }
+.sp-offer { position: relative; display: grid; grid-template-columns: 170px minmax(0, 1fr) 220px; align-items: stretch; background: #fff; border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.sp-offer:hover { transform: translateY(-3px); border-color: #9FB2E8; box-shadow: 0 18px 36px rgba(11, 42, 111, .12); }
+.sp-offer--best { border: 2px solid var(--blue); }
+.sp-ribbon { position: absolute; top: 0; left: 190px; padding: 5px 14px; background: #FFB020; color: #0A1330; border-radius: 0 0 10px 10px; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; z-index: 3; }
+.sp-stub { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 24px 12px; background: var(--brand); color: #fff; text-align: center; }
+.sp-stub b { font-family: var(--font-display); font-weight: 800; font-size: clamp(32px, 3.2vw, 42px); line-height: 1; }
+.sp-stub span { font-size: 13px; font-weight: 700; letter-spacing: .1em; color: #BFD0FF; }
+.sp-stub::after { content: ""; position: absolute; top: 16px; bottom: 16px; right: 0; border-right: 2px dashed rgba(255, 255, 255, .35); }
+.sp-stub::before, .sp-body::before { content: ""; position: absolute; left: 159px; width: 22px; height: 22px; border-radius: 50%; background: var(--soft); border: 1px solid var(--line); z-index: 2; }
+.sp-stub::before { top: -12px; }
+.sp-body::before { bottom: -12px; }
+.sp-body { display: flex; flex-direction: column; gap: 12px; padding: 26px 24px 22px; min-width: 0; }
+.sp-body h3 { margin: 0; font-size: 18px; font-weight: 700; line-height: 1.35; color: var(--ink); }
+.sp-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.sp-used { margin: auto 0 0; font-size: 13px; color: var(--muted); }
+.sp-cta { display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 22px 24px 22px 6px; }
+.sp-peek { display: flex; flex-direction: column; border: 2px dashed #9FB2E8; border-radius: 14px; overflow: hidden; }
+.sp-peek code { padding: 11px 12px; text-align: center; font-family: ui-monospace, Menlo, monospace; font-weight: 700; letter-spacing: .14em; color: #6B7BA6; background: var(--soft); }
+.sp-peek .btn, .sp-cta > .btn { height: auto; padding: 14px 16px; font-size: 15px; border-radius: 0; }
+.sp-cta > .btn { border-radius: 12px; }
+.sp-cta small { text-align: center; font-size: 12px; color: var(--muted); }
+.sp-empty { padding: 36px; text-align: center; color: var(--muted); background: var(--soft); border-radius: 18px; }
+.sp-note { margin: 28px 0 0; padding: 16px 18px; background: var(--soft); border-radius: 14px; font-size: 14px; line-height: 1.6; color: var(--muted); }
+
+/* ---------- Table ---------- */
+.sp-table-wrap { margin-top: 24px; overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.sp-table { width: 100%; border-collapse: collapse; background: #fff; font-size: 15px; }
+.sp-table th, .sp-table td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--line); }
+.sp-table th { background: var(--soft); font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.sp-table tr:last-child td { border-bottom: 0; }
+.sp-table td:first-child { font-weight: 700; color: var(--brand); white-space: nowrap; }
+.sp-table code { font-family: ui-monospace, Menlo, monospace; font-weight: 700; letter-spacing: .08em; }
+
+/* ---------- Steps panel ---------- */
+.sp-panel { padding: 48px 36px; background: var(--soft); border: 1px solid #E1E7F5; border-radius: 28px; text-align: center; }
+.sp-panel h2 { margin-top: 10px; }
+.sp-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 36px; }
+.sp-step b { width: 56px; height: 56px; margin: 0 auto; display: flex; align-items: center; justify-content: center; background: var(--brand); color: #fff; border-radius: 50%; font-family: var(--font-display); font-weight: 800; font-size: 24px; }
+.sp-step h3 { margin: 16px 0 0; font-size: 18px; }
+.sp-step p { margin: 8px 0 0; font-size: 15px; line-height: 1.55; color: var(--muted); }
+
+/* ---------- Tips ---------- */
+.sp-tips { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+.sp-tip { display: flex; gap: 16px; padding: 22px; background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
+.sp-tip i { flex: none; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--tint); color: var(--brand); border-radius: 12px; font-style: normal; font-weight: 800; }
+.sp-tip b { display: block; font-size: 16px; }
+.sp-tip span { display: block; margin-top: 4px; font-size: 14px; line-height: 1.5; color: var(--muted); }
+
+/* ---------- FAQ ---------- */
+.sp-faq details { margin-top: 12px; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
+.sp-faq h2 + details { margin-top: 24px; }
+.sp-faq details[open] { border-color: #9FB2E8; box-shadow: var(--shadow); }
+.sp-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; font-weight: 700; font-size: 16px; cursor: pointer; list-style: none; }
+.sp-faq summary::-webkit-details-marker { display: none; }
+.sp-faq summary::after { content: "+"; flex: none; font-size: 24px; line-height: 1; color: var(--blue); }
+.sp-faq details[open] summary::after { content: "–"; }
+.sp-faq details p { margin: 0; padding: 0 22px 20px; font-size: 15px; line-height: 1.6; color: var(--muted); }
+
+/* ---------- Sidebar ---------- */
+.sp-side { position: sticky; top: 92px; display: flex; flex-direction: column; gap: 22px; }
+.sp-box { padding: 24px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.sp-box h3 { margin: 0 0 16px; font-family: var(--font-display); font-weight: 700; font-size: 21px; }
+.sp-facts { display: grid; gap: 12px; margin: 0; font-size: 14px; }
+.sp-facts div { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.sp-facts div:last-child { padding: 0; border: 0; }
+.sp-facts dt { color: var(--muted); }
+.sp-facts dd { margin: 0; font-weight: 700; text-align: right; }
+.sp-box--dark { background: var(--brand); border: 0; color: #fff; }
+.sp-box--dark h3 { color: #fff; }
+.sp-box--dark p { margin: 0 0 16px; font-size: 15px; line-height: 1.5; color: #D3DEFA; }
+.sp-box--dark input { display: block; width: 100%; height: 50px; margin-bottom: 12px; padding: 0 16px; border: 0; border-radius: 12px; font: 400 15px var(--font-body); color: var(--ink); }
+.sp-box--dark .btn { width: 100%; height: 50px; background: #fff; color: var(--brand); }
+.sp-box--dark .btn:hover { filter: none; background: var(--tint); }
+.sp-msg { min-height: 20px; margin: 12px 0 0 !important; font-size: 14px !important; font-weight: 600; color: #fff !important; }
+.sp-msg.is-ok { color: #9BE7BE !important; }
+.sp-msg.is-error { color: #FFB4AD !important; }
+.sp-similar { display: flex; flex-direction: column; gap: 10px; }
+.sp-similar a { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; transition: border-color .2s, background .2s; }
+.sp-similar a:hover { border-color: #9FB2E8; background: var(--soft); }
+.sp-similar i { flex: none; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: var(--tint); color: var(--brand); border-radius: 12px; font-style: normal; font-family: var(--font-display); font-weight: 700; font-size: 19px; }
+.sp-similar span { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.sp-similar b { font-size: 15px; }
+.sp-similar small { font-size: 13px; color: var(--muted); }
+.sp-similar em { font-style: normal; font-weight: 700; color: var(--blue); }
+
+/* Modal: your modal CSS sets display:flex on the code box, which ignores [hidden] */
+.modal__code[hidden] { display: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .sp-layout { grid-template-columns: 1fr; gap: 32px; }
+  .sp-side { position: static; }
+}
+@media (max-width: 760px) {
+  .sp-card { padding: 24px 22px; }
+  .sp-logo { width: 60px; height: 60px; border-radius: 16px; font-size: 28px; }
+  .sp-actions { width: 100%; flex-direction: column; }
+  .sp-lead { display: none; }
+  .sp-offer { grid-template-columns: 1fr; }
+  .sp-stub { flex-direction: row; justify-content: flex-start; gap: 12px; padding: 18px 22px; }
+  .sp-stub b { font-size: 30px; }
+  .sp-stub::after { top: auto; left: 16px; right: 16px; bottom: 0; border-right: 0; border-bottom: 2px dashed rgba(255, 255, 255, .35); }
+  .sp-stub::before, .sp-body::before { display: none; }
+  .sp-ribbon { left: auto; right: 22px; }
+  .sp-body { padding: 18px 22px 8px; }
+  .sp-cta { padding: 0 22px 22px; }
+  .sp-steps, .sp-tips { grid-template-columns: 1fr; }
+  .sp-panel { padding: 36px 22px; border-radius: 22px; }
+  .sp-section { margin-top: 52px; }
+}
